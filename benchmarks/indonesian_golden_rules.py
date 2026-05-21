@@ -192,4 +192,56 @@ GOLDEN_ID_RULES = [
     # 48) Four-dot ellipsis as sentence boundary
     ("Saya sudah mencoba segalanya.... Tidak ada yang berhasil.",
      ["Saya sudah mencoba segalanya....", "Tidak ada yang berhasil."]),
+
+    # --- Hyperlink / URL ---
+
+    # 49) URL mid-sentence is not a sentence boundary
+    ("Artikel selengkapnya dapat dibaca di https://www.kompas.com/artikel/judul-berita.html untuk informasi terbaru.",
+     ["Artikel selengkapnya dapat dibaca di https://www.kompas.com/artikel/judul-berita.html untuk informasi terbaru."]),
+
+    # 50) URL at sentence end followed by new sentence
+    ("Silakan kunjungi situs kami di https://www.kemendikbud.go.id. Informasi lebih lanjut tersedia di sana.",
+     ["Silakan kunjungi situs kami di https://www.kemendikbud.go.id.", "Informasi lebih lanjut tersedia di sana."]),
+
+    # 51) Indonesian .id country-code TLD inside URL is not a sentence boundary
+    ("Portal resmi layanan publik tersedia di https://www.indonesia.go.id/layanan-publik.html setiap saat.",
+     ["Portal resmi layanan publik tersedia di https://www.indonesia.go.id/layanan-publik.html setiap saat."]),
+
+    # 52) URL with path segments and numeric components is not a sentence boundary
+    ("Gunakan tautan https://example.com/cari/bahasa-indonesia/halaman/1 untuk pencarian.",
+     ["Gunakan tautan https://example.com/cari/bahasa-indonesia/halaman/1 untuk pencarian."]),
+
+    # 53) Email address at sentence end followed by new sentence
+    ("Kirimkan berkas Anda ke info@perusahaan.co.id. Kami akan segera merespons.",
+     ["Kirimkan berkas Anda ke info@perusahaan.co.id.", "Kami akan segera merespons."]),
+
+    # 54) Email address mid-sentence is not a sentence boundary
+    ("Untuk informasi lebih lanjut, hubungi budi.santoso@univ.ac.id atau kunjungi kantor kami.",
+     ["Untuk informasi lebih lanjut, hubungi budi.santoso@univ.ac.id atau kunjungi kantor kami."]),
+
+    # --- Markdown ---
+
+    # 55) Markdown inline link is not a sentence boundary
+    ("Baca [panduan lengkap](https://docs.example.com/panduan.html) untuk memulai penggunaan.",
+     ["Baca [panduan lengkap](https://docs.example.com/panduan.html) untuk memulai penggunaan."]),
+
+    # 56) Markdown bold marker followed by sentence content is not a sentence boundary
+    ("**Penting:** Jangan lupa membawa dokumen asli ke kantor pada hari yang ditentukan.",
+     ["**Penting:** Jangan lupa membawa dokumen asli ke kantor pada hari yang ditentukan."]),
+
+    # 57) Markdown heading with decimal section number is not a sentence boundary
+    ("## 2.1 Latar Belakang Masalah",
+     ["## 2.1 Latar Belakang Masalah"]),
+
+    # 58) Markdown inline code containing dots is not a sentence boundary
+    ("Jalankan perintah `pip install pysbd` untuk menginstal pustaka ini di sistem Anda.",
+     ["Jalankan perintah `pip install pysbd` untuk menginstal pustaka ini di sistem Anda."]),
+
+    # 59) Markdown ordered list items are split correctly
+    ("1. Unduh formulir pendaftaran 2. Isi data diri dengan lengkap 3. Kirimkan ke kantor terdekat",
+     ["1. Unduh formulir pendaftaran", "2. Isi data diri dengan lengkap", "3. Kirimkan ke kantor terdekat"]),
+
+    # 60) Multiple sentences containing URLs and plain text
+    ("Laporan tersedia di https://laporan.go.id/2024/ringkasan.pdf. Harap dibaca sebelum rapat.",
+     ["Laporan tersedia di https://laporan.go.id/2024/ringkasan.pdf.", "Harap dibaca sebelum rapat."]),
 ]

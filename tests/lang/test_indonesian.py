@@ -66,6 +66,44 @@ ID_MORE_TEST_CASES = [
      ["Benarkah itu?", "Ya, benar!", "Saya sudah membuktikannya sendiri."]),
 ]
 
+ID_HYPERLINK_MARKDOWN_TEST_CASES = [
+    # URL mid-sentence is not a sentence boundary
+    ("Artikel selengkapnya dapat dibaca di https://www.kompas.com/artikel/judul-berita.html untuk informasi terbaru.",
+     ["Artikel selengkapnya dapat dibaca di https://www.kompas.com/artikel/judul-berita.html untuk informasi terbaru."]),
+
+    # URL at sentence end followed by new sentence
+    ("Silakan kunjungi situs kami di https://www.kemendikbud.go.id. Informasi lebih lanjut tersedia di sana.",
+     ["Silakan kunjungi situs kami di https://www.kemendikbud.go.id.", "Informasi lebih lanjut tersedia di sana."]),
+
+    # Indonesian .id TLD inside URL is not a sentence boundary
+    ("Portal resmi layanan publik tersedia di https://www.indonesia.go.id/layanan-publik.html setiap saat.",
+     ["Portal resmi layanan publik tersedia di https://www.indonesia.go.id/layanan-publik.html setiap saat."]),
+
+    # Email address at sentence end followed by new sentence
+    ("Kirimkan berkas Anda ke info@perusahaan.co.id. Kami akan segera merespons.",
+     ["Kirimkan berkas Anda ke info@perusahaan.co.id.", "Kami akan segera merespons."]),
+
+    # Email address mid-sentence is not a sentence boundary
+    ("Untuk informasi lebih lanjut, hubungi budi.santoso@univ.ac.id atau kunjungi kantor kami.",
+     ["Untuk informasi lebih lanjut, hubungi budi.santoso@univ.ac.id atau kunjungi kantor kami."]),
+
+    # Markdown inline link is not a sentence boundary
+    ("Baca [panduan lengkap](https://docs.example.com/panduan.html) untuk memulai penggunaan.",
+     ["Baca [panduan lengkap](https://docs.example.com/panduan.html) untuk memulai penggunaan."]),
+
+    # Markdown bold marker is not a sentence boundary
+    ("**Penting:** Jangan lupa membawa dokumen asli ke kantor pada hari yang ditentukan.",
+     ["**Penting:** Jangan lupa membawa dokumen asli ke kantor pada hari yang ditentukan."]),
+
+    # Markdown inline code with dots is not a sentence boundary
+    ("Jalankan perintah `pip install pysbd` untuk menginstal pustaka ini di sistem Anda.",
+     ["Jalankan perintah `pip install pysbd` untuk menginstal pustaka ini di sistem Anda."]),
+
+    # Multiple sentences containing a URL
+    ("Laporan tersedia di https://laporan.go.id/2024/ringkasan.pdf. Harap dibaca sebelum rapat.",
+     ["Laporan tersedia di https://laporan.go.id/2024/ringkasan.pdf.", "Harap dibaca sebelum rapat."]),
+]
+
 
 @pytest.mark.parametrize('text,expected_sents', GOLDEN_ID_RULES_TEST_CASES)
 def test_id_sbd(id_default_fixture, text, expected_sents):
@@ -76,6 +114,13 @@ def test_id_sbd(id_default_fixture, text, expected_sents):
 
 @pytest.mark.parametrize('text,expected_sents', ID_MORE_TEST_CASES)
 def test_id_more(id_default_fixture, text, expected_sents):
+    segments = id_default_fixture.segment(text)
+    segments = [s.strip() for s in segments]
+    assert segments == expected_sents
+
+
+@pytest.mark.parametrize('text,expected_sents', ID_HYPERLINK_MARKDOWN_TEST_CASES)
+def test_id_hyperlink_markdown(id_default_fixture, text, expected_sents):
     segments = id_default_fixture.segment(text)
     segments = [s.strip() for s in segments]
     assert segments == expected_sents

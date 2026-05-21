@@ -46,7 +46,7 @@ class Indonesian(Common, Standard):
         PREPOSITIVE_ABBREVIATIONS = [
             'prof', 'dr', 'drg', 'ir', 'drs', 'dra', 'tn', 'ny', 'nn',
             'bpk', 'yth', 'sdr', 'sdri', 'hj', 'h', 'sp', 'jl', 'gg',
-            'kec', 'kel', 'kab', 'prov',
+            'kec', 'kel', 'kab', 'prov', 'pt', 'cv', 'ud',
         ]
         NUMBER_ABBREVIATIONS = [
             'no', 'tel', 'fax', 'hlm', 'hal', 'vol', 'cet', 'ed', 'rt',

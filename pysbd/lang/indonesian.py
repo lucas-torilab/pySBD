@@ -27,6 +27,12 @@ class Indonesian(Common, Standard):
             'm.h', 'm.kom', 'ph.d', 'sp',
             # Common Indonesian abbreviations
             'dll', 'dsb', 'dkk', 'dst', 'dlsb', 'tsb', 'svp', 'ybs',
+            # Date / time
+            'tgl', 's.d',
+            # Informal shorthands
+            'yg', 'dgn', 'utk',
+            # Latin / academic
+            'et', 'al',
             # Units
             'km', 'cm', 'mm', 'dm', 'kg', 'gr', 'mg', 'ml', 'lt', 'kw',
             # Address / location
@@ -46,9 +52,9 @@ class Indonesian(Common, Standard):
         PREPOSITIVE_ABBREVIATIONS = [
             'prof', 'dr', 'drg', 'ir', 'drs', 'dra', 'tn', 'ny', 'nn',
             'bpk', 'yth', 'sdr', 'sdri', 'hj', 'h', 'sp', 'jl', 'gg',
-            'kec', 'kel', 'kab', 'prov', 'pt', 'cv', 'ud',
+            'kec', 'kel', 'kab', 'prov', 'pt', 'cv', 'ud', 'a.n', 'u.b',
         ]
         NUMBER_ABBREVIATIONS = [
             'no', 'tel', 'fax', 'hlm', 'hal', 'vol', 'cet', 'ed', 'rt',
-            'rw',
+            'rw', 'tgl',
         ]

@@ -128,4 +128,68 @@ GOLDEN_ID_RULES = [
     # 32) Ellipsis as non-sentence boundary
     ("Saya tidak tahu... mungkin besok saya akan datang ke sana.",
      ["Saya tidak tahu... mungkin besok saya akan datang ke sana."]),
+
+    # 33) Time notation with period — pukul HH.MM is not a sentence boundary
+    ("Rapat dimulai pukul 08.00 dan berakhir pukul 17.00.",
+     ["Rapat dimulai pukul 08.00 dan berakhir pukul 17.00."]),
+
+    # 34) Time notation with seconds — pukul HH.MM.SS is not a sentence boundary
+    ("Rekaman menunjukkan kejadian itu berlangsung pada pukul 01.35.20 dini hari.",
+     ["Rekaman menunjukkan kejadian itu berlangsung pada pukul 01.35.20 dini hari."]),
+
+    # 35) tgl. (tanggal) date abbreviation as non-sentence boundary
+    ("Surat ini dibuat pada tgl. 17 Agustus 1945 di Jakarta.",
+     ["Surat ini dibuat pada tgl. 17 Agustus 1945 di Jakarta."]),
+
+    # 36) s.d. (sampai dengan) date-range abbreviation as non-sentence boundary
+    ("Pendaftaran peserta dibuka dari Senin s.d. Jumat di setiap minggunya.",
+     ["Pendaftaran peserta dibuka dari Senin s.d. Jumat di setiap minggunya."]),
+
+    # 37) a.n. (atas nama) delegation marker in formal letters
+    ("Surat ini ditandatangani a.n. Direktur Utama yang sedang bertugas ke luar negeri.",
+     ["Surat ini ditandatangani a.n. Direktur Utama yang sedang bertugas ke luar negeri."]),
+
+    # 38) u.b. (untuk beliau) attention-to marker in formal correspondence
+    ("Mohon sampaikan berkas ini kepada u.b. Bapak Santoso di divisi keuangan.",
+     ["Mohon sampaikan berkas ini kepada u.b. Bapak Santoso di divisi keuangan."]),
+
+    # 39) Informal shorthands yg. and dgn. as non-sentence boundary
+    ("Saya mencari buku yg. membahas sejarah Indonesia dgn. pembahasan yang lengkap.",
+     ["Saya mencari buku yg. membahas sejarah Indonesia dgn. pembahasan yang lengkap."]),
+
+    # 40) Multiple academic degrees after a name, mid-sentence (non-boundary)
+    ("Seminar itu dipandu oleh Budi Santoso, S.T., M.T. selaku moderator utama.",
+     ["Seminar itu dipandu oleh Budi Santoso, S.T., M.T. selaku moderator utama."]),
+
+    # 41) Academic degree at sentence end (is a boundary)
+    ("Makalah itu ditulis oleh Ani Rahayu, S.Pd. Beliau mengajar di sekolah tersebut.",
+     ["Makalah itu ditulis oleh Ani Rahayu, S.Pd.", "Beliau mengajar di sekolah tersebut."]),
+
+    # 42) ibid. academic citation as non-sentence boundary
+    ("Teori ini dijelaskan lebih lanjut dalam bab sebelumnya (Ibid., hlm. 45).",
+     ["Teori ini dijelaskan lebih lanjut dalam bab sebelumnya (Ibid., hlm. 45)."]),
+
+    # 43) op. cit. academic citation as non-sentence boundary
+    ("Pernyataan tersebut dikutip dari sumber yang sama (Smith, op. cit., hlm. 23).",
+     ["Pernyataan tersebut dikutip dari sumber yang sama (Smith, op. cit., hlm. 23)."]),
+
+    # 44) et al. in academic citation as non-sentence boundary
+    ("Penelitian yang dilakukan oleh Wijaya et al. menunjukkan hasil yang signifikan.",
+     ["Penelitian yang dilakukan oleh Wijaya et al. menunjukkan hasil yang signifikan."]),
+
+    # 45) Named entity with exclamation point inside sentence (non-boundary)
+    ("Kami memesan makanan dari Go-Jek! untuk acara perusahaan malam itu.",
+     ["Kami memesan makanan dari Go-Jek! untuk acara perusahaan malam itu."]),
+
+    # 46) Parenthetical phrase inside sentence (non-boundary)
+    ("Harga tiket masuk adalah Rp50.000,00 (termasuk pajak PPN) per orang.",
+     ["Harga tiket masuk adalah Rp50.000,00 (termasuk pajak PPN) per orang."]),
+
+    # 47) hlm. before a page number as non-sentence boundary
+    ("Pembahasan lebih lanjut mengenai topik ini dapat dilihat pada hlm. 42 buku tersebut.",
+     ["Pembahasan lebih lanjut mengenai topik ini dapat dilihat pada hlm. 42 buku tersebut."]),
+
+    # 48) Four-dot ellipsis as sentence boundary
+    ("Saya sudah mencoba segalanya.... Tidak ada yang berhasil.",
+     ["Saya sudah mencoba segalanya....", "Tidak ada yang berhasil."]),
 ]

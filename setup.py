@@ -13,7 +13,7 @@ from setuptools import find_packages, setup, Command
 
 root = os.path.abspath(os.path.dirname(__file__))
 
-REQUIRES_PYTHON = ">=3.11"
+REQUIRES_PYTHON = ">=3.10"
 # What packages are required for this module to be executed?
 REQUIRED = []
 
@@ -92,6 +92,7 @@ setup(
         'Topic :: Software Development',
         'Topic :: Software Development :: Libraries',
         'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.10',
         'Programming Language :: Python :: 3.11',
         'Programming Language :: Python :: 3.12',
         'Programming Language :: Python :: 3.13',
